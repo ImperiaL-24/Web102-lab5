@@ -11,12 +11,10 @@ export default function Leaderboard({score, onTimeSubmit}: Props) {
 
     let handleClick = () => {
         /* TODO: send information to the server */
-        onTimeSubmit(name);
     }
 
     let handleInput = (e: ChangeEvent<HTMLInputElement>) => {
         /* TODO: update the name */
-        setName(e.target.value);
     }
 
     /* Some weird react stuff. This exists just to keep the elements in line */
