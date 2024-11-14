@@ -21,6 +21,8 @@ Un scenariu de joc (F = Steag, Spatiu = cifra 0, # = Nedescoperit)
 ```
 Cu aceste reguli, putem majoritatea timpului să ne dăm seama de toate bombele.
 
+Descoperirea unui tile se face cu left-click, și marcarea lui cu un steag se face cu right-click.
+
 După ce o rundă este terminată, timpul luat pentru a rezolva jocul este salvat și utilizatorul are posibilitatea de a posta pe leaderboard timpul lui, împreună cu un nume.
 
 În acest lab, dimensiunea tabelei de joc o să fie de 5x5, ca să nu dureze foarte mult o rundă.  
@@ -37,7 +39,7 @@ interface Entry {
     time: number
 }
 ```
-timpul este stocat in milisecunde.
+timpul este stocat in milisecunde. Interfața `Entry` este definită în `scheme/entry`
 
 `POST /leaderboard` -> imi adaugă timpul meu la leaderboard. Va trebui postat un `Entry` prin body-ul request-ului.
 
@@ -59,11 +61,28 @@ Sunt diferite funcții comune care ne simplifică treaba.
 2. Implementarea componentei `Table`
 3. Implementarea componentei `Tile`
 4. Implementarea componentei `Leaderboard`
+4. Implementarea componentei `EndScreen`
 5. Implementarea HTTP Endpoint-ului `GET /leaderboard`
 6. Implementarea HTTP Endpoint-ului `POST /leaderboard`
 
+După ce implementați puteți verifica dacă merge totul bine.
+
+### Bonus
+
+1. Încercați să accessați laboratorul unui coleg și să adăugați o intrare pe leaderboard-ul lor.
+
+Comanda `npm run dev` poate sa expună website-ul la oricine din aceași rețea. Dacă intrați cu un coleg pe aceași rețea (hotspot mobil / WI-FI) și ei rulează comanda `npm run dev`, o să le apară mai multe link -uri de unde pot accessa website-ul lor. Link-urile care nu au host-ul `localhost` pot fi accessate de persoane din acceași rețea.
+
+2. Adăugați un număr limitat de steaguri la care am disponibilitate pe parcursul unui joc. Numărul inițial de steaguri este egal cu numărul de bombe de pe tablă.
+
+3. Adăugați un meniu de `You lose!`. Atunci când cineva descoperă o bombă să ii apară acest meniu și el să nu poată sa interacționeze cu tabla.
+
+4. Atunci când câștig vreau să nu mai pot să interacționez cu tabla.
+
+5. Modificați scheletul astfel încât să existe posibilitatea să modific numărul de bombe și mărimea grid-ului. Modificați leaderboard-ul astfel încât să meargă cu noul sistem.
+
 ## Rularea lab-ului
-> Note: Lab-ul a fost gândit să ruleze pe Windows sau pe Linux (nu WSL). Orice altceva poate să producă probleme.
+> Note: Lab-ul a fost gândit să ruleze pe Windows sau pe Linux (nu WSL). Orice altceva *poate* să producă probleme.
 >
 Pentru acest lab o să aveți nevoie de `node.js` instalat, care ar trebui să fie instalat din lab-urile anterioare.
 
